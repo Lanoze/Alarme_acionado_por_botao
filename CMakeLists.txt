@@ -24,23 +24,23 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(PICO_BOARD pico_w CACHE STRING "Board type")
 include(pico_sdk_import.cmake)
-project(ws2812 C CXX ASM)
+project(alarm_button C CXX ASM)
 pico_sdk_init()
 
 
-add_executable(ws2812 ws2812.c )
+add_executable(alarm_button alarm_button.c )
 
 #Pra essas configurações darem certo, tem que serem adicionadas depos do add_executable
-pico_set_program_name(ws2812 "ws2812")
-pico_set_program_version(ws2812 "0.1")
+pico_set_program_name(alarm_button "alarm_button")
+pico_set_program_version(alarm_button "0.1")
 
-pico_enable_stdio_uart(ws2812 1)
-pico_enable_stdio_usb(ws2812 1)
+pico_enable_stdio_uart(alarm_button 1)
+pico_enable_stdio_usb(alarm_button 1)
 
-file(MAKE_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/generated)
-pico_generate_pio_header(ws2812 ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio OUTPUT_DIR ${CMAKE_CURRENT_LIST_DIR}/generated)
-pico_enable_stdio_uart(ws2812 1)
-pico_enable_stdio_usb(ws2812 1)
-target_sources(ws2812 PRIVATE ws2812.c)
-target_link_libraries(ws2812 PRIVATE pico_stdlib hardware_pio)
-pico_add_extra_outputs(ws2812) 
+#file(MAKE_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/generated)
+#pico_generate_pio_header(alarm_button ${CMAKE_CURRENT_LIST_DIR}/ws2812.pio OUTPUT_DIR ${CMAKE_CURRENT_LIST_DIR}/generated)
+#pico_enable_stdio_uart(ws2812 1)
+#pico_enable_stdio_usb(ws2812 1)
+target_sources(alarm_button PRIVATE alarm_button.c)
+target_link_libraries(alarm_button PRIVATE pico_stdlib hardware_pio)
+pico_add_extra_outputs(alarm_button) 

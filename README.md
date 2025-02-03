@@ -1,6 +1,5 @@
-# Tarefa_27_01
-Tarefa da aula síncrona do dia 27/01
+# Alarme acionado por pushbutton
 
-O LED vermelho pisca 5 vezes por segundo, o número exibido na matriz de LEDs pode ser incrementado com o botão B e decrementado com o botão A.
+Aperte o botão A pra ligar todos os LEDs, em seguida eles desligarão um a um. Nada acontece se o botão for pressionado enquanto estiver pelo menos 1 LED aceso
 
-Vídeo mostrando o funcionamento: https://drive.google.com/file/d/1EgxyBQfLIolJWFaNMZuqROPsGBsUZ1pn/view?usp=drive_link
+https://drive.google.com/file/d/1t79vCe2ubuL_UgqSFeRuu_LlhcTrK90X/view?usp=sharing
