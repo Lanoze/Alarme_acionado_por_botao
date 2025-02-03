@@ -1,16 +1,3 @@
-/*
- * Por: Wilton Lacerda Silva
- * 
- * Este código é uma adaptação do código original do SDK Pico
- * para a utilização da matriz de LEDs WS2812 do BitDogLab.
- * 
- * A seleção de LEDs acesos é feita por meio de um buffer de LEDs, onde
- * cada posição do buffer representa um LED da matriz 5x5.
- * 
- * Original em:
- * https://github.com/raspberrypi/pico-examples/tree/master/pio/ws2812
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "pico/stdlib.h"
@@ -51,7 +38,7 @@ int64_t desligar_azul(){gpio_put(BLUE,0); return 0;}
 int64_t desligar_verde(){gpio_put(GREEN,0); alarmes_ativados=0; return 0;}
 
 
-//Rotina de interrupção, o botão A decrementa e o botão B incrementa
+//Rotina de interrupção
 void interrupt(uint gpio, uint32_t events)
 {
  if(!alarmes_ativados){
@@ -70,7 +57,7 @@ int main()
 
     stdio_init_all();
     gpio_init_all();
-    //Só é possivel ter uma unica função de interrupção
+    //A borda de descida do botão A ativa a função
     gpio_set_irq_enabled_with_callback(BUTTON_A, GPIO_IRQ_EDGE_FALL, true, &interrupt);
 
     //Faz o LED vermelho piscar 5 vezes por segundo
